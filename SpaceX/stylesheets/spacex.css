@@ -1,0 +1,127 @@
+body{
+  margin: 0px;
+  padding: 0px;
+  font-size: 16px;
+}
+
+#home{
+  background-image: url(http://static3.techinsider.io/image/568ad97ee6183e8a0f8b693a-3000-2000/16512864369_2bb896c344_o.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+  height: 225px;
+  color: white;
+}
+
+#home h1{
+  margin: 0px;
+  padding: 25px 0px 5px 25px;
+  font-size: 42px;
+}
+
+#home p{
+  padding: 5px 0px 10px 25px;
+  margin-bottom: 40px;
+}
+
+#main{
+}
+
+#main ul{
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #212112;
+}
+
+#main li{
+  float: left;
+}
+
+#main li a{
+  padding: 20px 136px;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  display: block;
+}
+
+#main li a:hover{
+  background-color: #2f2f1e;
+}
+
+#container{
+  width: 70%;
+  margin: auto;
+  font-size: 16px;
+  display: block;
+}
+
+#container .banner{
+  padding: 50px 5px;
+  float: left;
+}
+
+#audio{
+  float: right;
+  color: #8a8a5c;
+}
+
+#container main{
+  clear: both;
+}
+
+#container main article h2{
+  font-size: 35px;
+  padding: 10px;
+  background-color: #ccccb3;
+  border-radius: 15px;
+  margin: 0px;
+}
+
+#container main article section h3{
+  float: left;
+  margin: 22px 0px;
+  font-size: 27px;
+  color: #5c5c3d;
+}
+
+#container main article section .back{
+  text-align: right;
+  float: right;
+  margin-top: 33px;
+}
+
+#container main article section p{
+  clear: both;
+}
+
+#container main article section h4{
+  color: #8a8a5c;
+  font-size: 20px;
+  clear: both;
+}
+
+#launch-table{
+  padding: 15px;
+  background-color: #ccccb3;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+#launch-table h3{
+  margin: 0px;
+}
+
+#launch-table th{
+  color: white;
+  background-color: black;
+  padding: 5px 60px;
+}
+
+#launch-table tr td{
+  padding: 10px 0px;
+  background-color: white;
+}
