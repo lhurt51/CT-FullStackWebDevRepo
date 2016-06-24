@@ -7,17 +7,33 @@
   </head>
   <body>
     <h1>Where is my damn PIE!</h1>
-    <p class="subHead">Follow the instructions and help Rush find his pie.  Good luck!</p>
+    <p id="subHead">Follow the instructions and help Rush find his pie.  Good luck!</p>
     <img src="http://res.freestockphotos.biz/pictures/17/17487-illustration-of-a-slice-of-pie-pv.png" alt="pie" />
     <section>
-      <p><span class="instructions">Guess the thief before the time runs out!</span></p>
-      <input type="text" class="inputField" maxlength="2" placeholder="Enter initials of suspect">
-      <button type="button" name="subBtn" class="subBtn">Submit answer</button>
+      <p><span id="instructions">Guess the thief before the time runs out!</span></p>
+      <form action="javascript://">
+        <input type="text" id="inputField" maxlength="2" placeholder="Enter initials of suspect">
+        <button type="button" name="subBtn" id="subBtn">Submit answer</button>
+      </form>
     </section>
-    <aside class="controls">
-      <span class="game-time">20</span>
-      <p>Score: <span class="score">10</span></p>
-      <button type="button" name="button" class="btn">Start</button>
+    <section class="people-list">
+      <ul style="list-style-type: none;">
+        <li>Markham Gross</li>
+        <li>Ari Zamudio</li>
+        <li>Liam Hurt</li>
+        <li>Mike McDermott</li>
+        <li>Dylan Eckert</li>
+        <li>Aaron Martin</li>
+        <li>Markus Brun</li>
+        <li>Blaze Halderman</li>
+        <li>Jayson Smith</li>
+        <li>Svyatoslav Safonov</li>
+      </ul>
+    </section>
+    <aside id="controls">
+      <span id="game-time">20</span>
+      <p>Score: <span id="score">10</span></p>
+      <button type="button" name="button" id="btn">Start</button>
     </aside>
     <script type="text/javascript" src="method.js"></script>
   </body>
