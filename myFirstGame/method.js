@@ -36,14 +36,13 @@ Game.prototype.start = function () {
   var theifInitials = theif.initials;
   console.log(theif.firstname + ' ' + theif.lastname);
 
-  var interval;
-
   self.gameClock = 20;
   self.currentScore = 10;
   scoreNode.textContent = 10;
   displayNode.textContent = 'Guess the thief before the time runs out!';
   startButton.textContent = 'Dont press!';
 
+  var interval;
   var previousGuesses = [];
   var domReference = [];
 
@@ -54,11 +53,15 @@ Game.prototype.start = function () {
     }
   }
 
+  var startGame = function() {
+
+  }
+
   var gameTimer = function () {
     var i = 20
     interval = setInterval(function () {
       i--;
-      self.gameClock = i;
+      self.gameClock--;
       timerNode.textContent = i;
       if (i === 0) {
         clearInterval(interval);
@@ -69,11 +72,8 @@ Game.prototype.start = function () {
 
   var inputInteraction = function () {
     var userInput = inputNode.value;
-    if (userInput.toUpperCase() === theifInitials) {
-      displayNode.textContent = 'You win with a score of ' + self.currentScore + ' in ' + self.gameClock + ' seconds!';
-      startButton.textContent = 'Start a new game';
-      clearInterval(interval)
-    } else if (userInput === '') {
+
+    if (!userInput) {
       displayNode.textContent = 'Must enter initials!';
     } else {
       checkGuess(userInput.toUpperCase());
@@ -81,35 +81,38 @@ Game.prototype.start = function () {
   }
 
   var checkGuess = function (userInput) {
-    if (previousGuesses.length > 0) {
-      for (var i = 0; i < previousGuesses.length; i++) {
-        if (previousGuesses[i] === userInput) {
-          displayNode.textContent = 'You have already used this name';
-          wrongAnswer(userInput);
-          break;
-        }
-      }
-    } else {
+    if (userInput.toUpperCase() === theifInitials) {
+      displayNode.textContent = 'You win with a score of ' + self.currentScore + ' in ' + self.gameClock + ' seconds!';
+      startButton.textContent = 'Start a new game';
+      winGame()
+    } else if (previousGuesses.indexOf(userInput) !== -1) {
+      displayNode.textContent = 'You have already used this name';
       wrongAnswer(userInput);
+    } else {
       displayNode.textContent = 'They are not the thief!';
+      wrongAnswer(userInput);
     }
   }
 
-  var crossOut = function (userInput){
-    for (var i = 0; i < domReference.length; i++) {
-      var domInitials = domReference[i].initials;
-      if(domInitials === userInput){
-        var userGuess = domReference[i];
-        userGuess.classList.add('crossOut');
-      }
-    }
+  var winGame = function() {
+    clearInterval(interval)
   }
+
+  // var crossOut = function (userInput){
+  //   for (var i = 0; i < domReference.length; i++) {
+  //     var domInitials = domReference[i].initials;
+  //     if(domInitials === userInput){
+  //       var userGuess = domReference[i];
+  //       userGuess.classList.add('crossOut');
+  //     }
+  //   }
+  // }
 
   var wrongAnswer = function (userInput) {
     self.currentScore --;
     scoreNode.textContent = self.currentScore;
     previousGuesses.push(userInput);
-    crossOut(userInput)
+    // crossOut(userInput)
 
     setTimeout(displayReset, 2000);
   }
@@ -121,17 +124,14 @@ Game.prototype.start = function () {
   var endGame = function () {
     displayNode.textContent = 'Game Over! Try again next time. It was ' + theif.firstname + ' ' + theif.lastname;
     startButton.textContent = 'Start a new game';
-    self.currentScore = 10;
-    scoreNode.textContent = self.currentScore;
-    self.gameClock = 20;
-    domReference.classList.remove('crossOut');
+    // domReference.classList.remove('crossOut');
     domReference = [];
+    previousGuesses = [];
   }
 
 
   gameTimer();
   splitName();
-  inputButton.addEventListener('click', inputInteraction)
   inputNode.addEventListener('keydown', function (e) {
     if (e.keyCode == 13) {
       inputInteraction();
