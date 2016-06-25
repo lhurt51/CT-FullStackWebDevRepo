@@ -29,32 +29,21 @@ Game.prototype.start = function () {
   var timerNode = document.getElementById('game-time');
   var inputButton = document.getElementById('subBtn');
   var inputNode = document.getElementById('inputField');
-  var htmlList = document.querySelectorAll('li');
 
   var rightAnswer = Math.floor(Math.random() * game.students.length);
   var theif = game.students[rightAnswer];
   var theifInitials = theif.initials;
   console.log(theif.firstname + ' ' + theif.lastname);
 
-  self.gameClock = 20;
-  self.currentScore = 10;
-  scoreNode.textContent = 10;
-  displayNode.textContent = 'Guess the thief before the time runs out!';
-  startButton.textContent = 'Dont press!';
-
   var interval;
   var previousGuesses = [];
-  var domReference = [];
-
-  var splitName = function () {
-    for (var i = 0; i < htmlList.length; i++) {
-      var split = htmlList[i].textContent.split(' ');
-      domReference.push(new Person(i, split[0], split[1]));
-    }
-  }
 
   var startGame = function() {
-
+    self.gameClock = 20;
+    self.currentScore = 10;
+    displayNode.textContent = 'Guess the thief before the time runs out!';
+    startButton.textContent = 'Dont press!';
+    gameTimer();
   }
 
   var gameTimer = function () {
@@ -98,21 +87,10 @@ Game.prototype.start = function () {
     clearInterval(interval)
   }
 
-  // var crossOut = function (userInput){
-  //   for (var i = 0; i < domReference.length; i++) {
-  //     var domInitials = domReference[i].initials;
-  //     if(domInitials === userInput){
-  //       var userGuess = domReference[i];
-  //       userGuess.classList.add('crossOut');
-  //     }
-  //   }
-  // }
-
   var wrongAnswer = function (userInput) {
-    self.currentScore --;
+    self.currentScore--;
     scoreNode.textContent = self.currentScore;
     previousGuesses.push(userInput);
-    // crossOut(userInput)
 
     setTimeout(displayReset, 2000);
   }
@@ -124,14 +102,14 @@ Game.prototype.start = function () {
   var endGame = function () {
     displayNode.textContent = 'Game Over! Try again next time. It was ' + theif.firstname + ' ' + theif.lastname;
     startButton.textContent = 'Start a new game';
-    // domReference.classList.remove('crossOut');
+    self.currentScore = 10;
+    scoreNode.textContent = 10;
     domReference = [];
     previousGuesses = [];
   }
 
 
-  gameTimer();
-  splitName();
+  startGame();
   inputNode.addEventListener('keydown', function (e) {
     if (e.keyCode == 13) {
       inputInteraction();
