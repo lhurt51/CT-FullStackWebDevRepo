@@ -4,7 +4,7 @@
     <!-- Core Meta -->
     <title>The Pizza Unicorn</title>
     <meta name="description" content="The world's greatest pizza delivery!">
-    <meta name="author" content="Rush Tehrani">
+    <meta name="author" content="Jameson Stafford">
 
     <!-- Open Graph -->
     <meta property='og:title' content="The Pizza Unicorn" />
@@ -44,37 +44,29 @@
             <p>Let's get you a billion dollar pizza ASAP!</p>
           </header>
           <article>
-            <form action="javascript://">
-              <div class="form-group">
-                <label for="firstname">First Name</label>
-                <input type="text" class="form-control" id="firstname" placeholder="First Name">
-              </div>
-              <div class="form-group">
-                <label for="lastname">Last Name</label>
-                <input type="text" class="form-control" id="lastname" placeholder="Last Name">
-              </div>
-              <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="Email">
-              </div>
-              <div class="form-group">
-                <label for="address">Address</label>
-                <input type="text" class="form-control" id="address" placeholder="Address">
-              </div>
-              <div class="form-group">
-                <label for="city">City</label>
-                <input type="text" class="form-control" id="city" placeholder="City">
-              </div>
-              <div class="form-group">
-                <label for="state">State</label>
-                <input type="text" class="form-control" id="state" placeholder="State">
-              </div>
-              <div class="form-group">
-                <label for="zip">Zip</label>
-                <input type="text" class="form-control" id="zip" placeholder="Zip Code">
-              </div>
-              <button type="submit" class="btn btn-default">Submit</button>
-            </form>
+              <form action="javascript://">
+                <div class="form-group">
+                  <label for="firstName">First Name</label>
+                  <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input type="email" class="form-control" id="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <label for="state">State</label>
+                  <input type="text" class="form-control" id="state" placeholder="State">
+                </div>
+                <div class="form-group">
+                  <label for="zip">Zip Code</label>
+                  <input type="text" class="form-control" id="zip" placeholder="Zip Code">
+                </div>
+                <button id="btn-add-customer" type="submit" class="btn btn-default">Submit</button>
+              </form>
           </article>
         </div>
 
@@ -84,7 +76,17 @@
             <p>Click on the toppings below to add to your pie.</p>
           </header>
           <article>
-            <p>PAGE 2!</p>
+            <form action="javascript://">
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="pizza-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  Select a Pizza
+                  <span class="caret"></span>
+                </button>
+                <ul id="pizza-size-list" class="dropdown-menu" aria-labelledby="pizza-dropdown">
+                </ul>
+              </div>
+              <button id="btn-add-pizza" type="submit" class="btn btn-default">Add Pizza</button>
+            </form>
           </article>
         </div>
 
@@ -94,7 +96,12 @@
             <p>Feel free to add more pizzas, or click "Done" to complete your order.</p>
           </header>
           <article>
-            <p>PAGE 3!</p>
+            <form action="javascript://">
+              <button id="btn-add-cart" type="submit" class="btn btn-default">Complete My Order</button>
+            </form>
+            <p>
+              Or <a href="javascript://" id="add-more-pizzas">click here to add more pizzas!</a>
+            </p>
           </article>
         </div>
 
@@ -112,6 +119,9 @@
     </div>
 
     <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="pizzaunicorn.js"></script>
+    <script type="text/javascript" src="pizza-data.js"></script>
   </body>
 </html>

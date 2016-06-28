@@ -4,8 +4,12 @@ html, body, #cover {
   width: 100%;
 }
 
+.wrapper, .page, article {
+  height: 100%;
+}
+
 body {
-  background: #000 url('http://img11.deviantart.net/1deb/i/2013/095/f/2/space_unicorn_pizza_delivery_livestream_doodle_by_otakuec-d60kfoq.jpg') no-repeat right;
+  background: #000 url('http://img11.deviantart.net/1deb/i/2013/095/f/2/space_unicorn_pizza_delivery_livestream_doodle_by_otakuec-d60kfoq.jpg') no-repeat top right;
   background-size: cover;
 }
 
@@ -15,6 +19,10 @@ body {
 
 * {
   color: #fff;
+}
+
+a {
+  color: #c4fcfb;
 }
 
 .wrapper {
@@ -43,9 +51,11 @@ nav ul li a {
   color: #fff;
 }
 
+input {
+  max-width: 200px;
+}
+
 .page {
-  width: 800px;
-  height: 800px;
   overflow: auto;
   display: none;
 }
