@@ -76,7 +76,7 @@
             <p>Click on the toppings below to add to your pie.</p>
           </header>
           <article>
-            <form action="javascript://">
+            <form action="javascript://" id="pizza-form">
               <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="pizza-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                   Select a Pizza
@@ -85,6 +85,10 @@
                 <ul id="pizza-size-list" class="dropdown-menu" aria-labelledby="pizza-dropdown">
                 </ul>
               </div>
+
+              <div id="topping-list">
+              </div>
+
               <button id="btn-add-pizza" type="submit" class="btn btn-default">Add Pizza</button>
             </form>
           </article>
@@ -96,6 +100,8 @@
             <p>Feel free to add more pizzas, or click "Done" to complete your order.</p>
           </header>
           <article>
+            <div id="cart-display">
+            </div>
             <form action="javascript://">
               <button id="btn-add-cart" type="submit" class="btn btn-default">Complete My Order</button>
             </form>
