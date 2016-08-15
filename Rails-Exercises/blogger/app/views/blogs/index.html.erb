@@ -1,0 +1,26 @@
+<h1>Your Blogs</h1>
+
+<% if @blogs.count == 0 %>
+
+<h2>There are no blogs</h2>
+<p>Please add a new blog</p>
+<p><%= link_to 'Create a new blog', new_blog_path %></p>
+
+<% else %>
+
+  <% @blogs.each do |blog| %>
+    <h2><%= blog.name %></h2>
+    <p><%= blog.description %></p>
+    <table>
+      <tr>
+        <td><%= link_to 'Show', blog_path(blog) %></td>
+        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+        <td><%= link_to 'Delete', blog_path(blog),
+        method: :delete,
+        data: { confirm: 'Are you sure?'} %></td>
+      </tr>
+    </table>
+  <% end %>
+<br>
+<p><%= link_to 'Create a new blog', new_blog_path %></p>
+<% end %>

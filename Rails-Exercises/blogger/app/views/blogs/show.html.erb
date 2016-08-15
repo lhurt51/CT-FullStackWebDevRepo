@@ -1,0 +1,30 @@
+<p><%= link_to 'Back to blogs', blogs_path %></p>
+
+<p>
+  <strong>Name</strong>
+  <%= @blog.name %>
+</p>
+<p>
+  <strong>Description</strong>
+  <%= @blog.description %>
+</p>
+
+<h2>Posts</h2>
+
+<% if @blog.posts.count == 0 %>
+
+<h2>There are no posts</h2>
+<p>Please add a new post</p>
+
+<% else %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+  </tr>
+  <%= render @blog.posts %>
+</table>
+<% end %>
+
+<%= link_to 'New Post', new_blog_post_path(@blog) %>

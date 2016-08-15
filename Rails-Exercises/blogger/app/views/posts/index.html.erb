@@ -1,0 +1,22 @@
+<h1>Posts</h1>
+
+<% if @posts.count == 0 %>
+
+<h2>There are no posts</h2>
+<p>Please add a new post</p>
+<p><%= link_to 'Create a new post', new_post_path %></p>
+
+<% else %>
+
+<table>
+  <tr>
+    <th>Tittle</th>
+    <th>Body</th>
+  </tr>
+
+  <%= render @posts %>
+</table>
+</br>
+<p><%= link_to 'Create a new post', new_post_url %></p>
+
+<% end %>
